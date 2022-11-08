@@ -159,9 +159,9 @@ ibm-sfg-prod:
         protocol: TCP
       portRanges:
         - name: adapters
-          portRange: 30301-30305
-          targetPortRange: 30301-30305
-          nodePortRange: 30301-30305
+          portRange: 30301-30306
+          targetPortRange: 30301-30306
+          nodePortRange: 30301-30306
           protocol: TCP
     ingress:
       internal:
