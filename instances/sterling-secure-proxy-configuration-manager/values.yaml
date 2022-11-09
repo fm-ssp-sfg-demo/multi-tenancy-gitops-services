@@ -61,9 +61,6 @@ ibm-ssp-cm:
 
   # Manage PV directory using Supplemental Group ID if needed.
   storageSecurity:
-    runAsUser: 1000720000
-    runAsGroup: 1000720000
-    fsGroup: 1000720000
     supplementalGroupId: ""
 
   # Specify these fields for Services
