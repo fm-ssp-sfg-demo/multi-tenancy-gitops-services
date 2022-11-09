@@ -53,7 +53,7 @@ ibm-ssp-cm:
     # Specify this to use selector label value for PV-PVC bind
     labelValue: "ibm-ssp-cm-pvc"
     # Specify this to set storage class name
-    storageClassName: "manual"
+    storageClassName: "managed-nfs-storage"
     # Specify this to set PVC size
     size: 2Gi
     # Specify this to set access mode
