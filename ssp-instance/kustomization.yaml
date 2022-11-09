@@ -1,7 +1,12 @@
-#### INIT ####
+resources:
 - ssp-init/ssp-cm-secret.yaml
 - ssp-init/ssp-cm-crb.yaml
 - ssp-init/ssp-cm-rb.yaml
 - ssp-init/ssp-engine-secret.yaml
-#===================
-- ssp-setup
+- ssp-setup/ssp-cm-pvc.yaml
+- ssp-setup/ssp-engine-pvc.yaml
+- ssp-setup/keycert-hook-roles.yaml
+- ssp-setup/keycert-hook-job.yaml
+- ssp-setup/keycert-hook-rb.yaml
+- ssp-cm/values.yaml
+- ssp-ep/values.yaml

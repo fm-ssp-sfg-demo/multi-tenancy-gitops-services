@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "225"
+    argocd.argoproj.io/sync-wave: "213"
   name: ssp-engine-pvc
   labels:
     app.kubernetes.io/name: ibm-ssp-engine-pvc
