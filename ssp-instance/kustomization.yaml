@@ -1,0 +1,7 @@
+#### INIT ####
+- ssp-init/ssp-cm-secret.yaml
+- ssp-init/ssp-cm-crb.yaml
+- ssp-init/ssp-cm-rb.yaml
+- ssp-init/ssp-engine-secret.yaml
+#===================
+- ssp-setup

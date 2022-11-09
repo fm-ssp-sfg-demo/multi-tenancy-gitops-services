@@ -1,0 +1,17 @@
+# (C) Copyright 2019 Syncsort Incorporated. All rights reserved.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "202"
+  name: "ssp-cm-serviceaccount-prod"
+  labels:
+    app: "ssp-cm-serviceaccount"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: "ibm-ssp-cm-scc"
+subjects:
+- kind: ServiceAccount
+  name: ssp-cm-serviceaccount
+  namespace: ssp

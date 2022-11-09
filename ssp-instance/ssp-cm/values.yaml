@@ -152,14 +152,14 @@ ibm-ssp-cm:
 
   # liveness and readiness Probe
   livenessProbe:
-    initialDelaySeconds: 500
-    timeoutSeconds: 100
+    initialDelaySeconds: 200
+    timeoutSeconds: 30
     periodSeconds: 60
     failureThreshold: 10
 
   readinessProbe:
-    initialDelaySeconds: 500
-    timeoutSeconds: 100
+    initialDelaySeconds: 190
+    timeoutSeconds: 5
     periodSeconds: 60
     failureThreshold: 10
 
