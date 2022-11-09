@@ -43,7 +43,7 @@ ibm-ssp-cm:
   # persistence section specifies persistence volume claim settings which apply to the whole chart
   persistentVolume:
     # enabled is whether to use Persistent Volumes or not
-    enabled: true
+    enabled: false
     # useDynamicProvisioning is whether or not to use Storage Classes to dynamically create Persistent Volumes
     useDynamicProvisioning: false
     # Specify the existing PV claim name to be used for deployment
