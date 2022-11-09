@@ -1,5 +1,4 @@
 ibm-ssp-cm:
-  sccs: ["anyuid"]
 # Default values for IBM® Sterling Secure Proxy - Configuration Manager for Linux Helm Chart a.k.a IBM Certified Container Software (IBMCCS).
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates. To override the default values either change in this file or use
