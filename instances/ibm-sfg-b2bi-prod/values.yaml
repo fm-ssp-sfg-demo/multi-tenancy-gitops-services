@@ -99,7 +99,7 @@ ibm-sfg-prod:
     #SANDBOX_WEBAPP_PROTOCOL: https
     #SANDBOX_WEBAPP_LIST_PORT: 5001
   asi:
-    replicaCount: 3
+    replicaCount: 2
 
     resources:
       limits:
@@ -110,7 +110,7 @@ ibm-sfg-prod:
         memory: 4Gi
 
     autoscaling:
-      enabled: false
+      enabled: true
       minReplicas: 2
       maxReplicas: 4
       targetCPUUtilizationPercentage: 60
