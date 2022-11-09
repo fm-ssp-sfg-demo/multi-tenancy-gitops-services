@@ -175,7 +175,7 @@ ibm-sfg-prod:
         #    servicePort: "my-http"
         #    enableHttps: false
   ac:
-    replicaCount: 1
+    replicaCount: 2
     resources:
       limits:
         cpu: 4000m
@@ -185,7 +185,7 @@ ibm-sfg-prod:
         memory: 4Gi
 
     autoscaling:
-      enabled: false
+      enabled: true
       minReplicas: 2
       maxReplicas: 4
       targetCPUUtilizationPercentage: 60
