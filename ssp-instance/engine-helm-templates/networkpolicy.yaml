@@ -1,0 +1,23 @@
+# Source: ibm-ssp-engine/templates/network-policy.yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: release-name-ibm-ssp-engine
+  labels:
+    app.kubernetes.io/name: ibm-ssp-engine
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: ibm-ssp-engine-1.2.3
+    release: release-name
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: ibm-ssp-engine
+      app.kubernetes.io/instance: release-name
+  egress:
+  - to: []
+  ingress:
+  - from: []
+  policyTypes:
+  - Ingress
+  - Egress

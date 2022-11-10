@@ -1,0 +1,81 @@
+# Source: ibm-ssp-engine/templates/tests/test-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "release-name-ibm-ssp-engine"
+  annotations:
+    "helm.sh/hook": test-success
+    "helm.sh/hook-delete-policy": hook-succeeded    
+    productID: "9b921dda8dd141bf8869ead1a790d4da"
+    productName: "IBM Sterling Secure Proxy Certified Container"
+    productVersion: "6.3.0"
+    productMetric: "VIRTUAL_PROCESSOR_CORE"
+    productChargedContainers: "All"
+  labels:
+    app.kubernetes.io/name: ibm-ssp-engine-test
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: ibm-ssp-engine-1.2.3
+    release: release-name
+spec:
+  restartPolicy: Never
+  serviceAccountName: release-name-ibm-ssp-engine-serviceaccount
+  hostNetwork: false
+  hostPID: false
+  hostIPC: false
+  securityContext:
+    
+    fsGroup: 1000
+    runAsGroup: 1000
+    runAsNonRoot: true
+    runAsUser: 1000
+    supplementalGroups:
+    - 5555
+  affinity:        
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:      
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+          preferredDuringSchedulingIgnoredDuringExecution:
+ 
+  containers:
+  - name: ibm-ssp-engine
+    image: "cp.icr.io/cp/ibm-ssp-engine/ssp-engine-docker-image:6.0.3.0.02"
+    imagePullPolicy: IfNotPresent
+    securityContext:
+        
+        allowPrivilegeEscalation: true
+        capabilities:
+          add:
+          - CHOWN
+          - SETGID
+          - SETUID
+          - FOWNER
+          - DAC_OVERRIDE
+          drop:
+          - ALL
+        privileged: false
+        readOnlyRootFilesystem: false
+        runAsUser: 1000
+    command: ["/bin/sh", "-c", "ret=`cat bin/startEngine.out | grep 'ready for Service'` ; if [[ -n $ret ]]; then echo 'SSP Engine installation is successful and application is running.' ; else echo 'SSP Engine is not running.' ; fi"]
+    resources:
+      limits:
+              cpu: 1000m
+              ephemeral-storage: 6Gi
+              memory: 3Gi
+      requests:
+              cpu: 1000m
+              ephemeral-storage: 4Gi
+              memory: 3Gi
+    volumeMounts:
+    - mountPath: /spinstall/IBM/SP
+      name: engine-pvc
+      subPath: ENGINE  
+  volumes:
+  - name: engine-pvc
+    persistentVolumeClaim:
+      claimName: release-name-ibm-ssp-engine-pvc
