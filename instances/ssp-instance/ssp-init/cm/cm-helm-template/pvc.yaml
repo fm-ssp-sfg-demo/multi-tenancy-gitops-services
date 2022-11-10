@@ -1,0 +1,25 @@
+# Source: ibm-ssp-cm/templates/pvClaim.yaml
+# Sample for creating a volume claim.
+# It will be used while creating the container.
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: release-name-ibm-ssp-cm-pvc
+  labels:
+    app.kubernetes.io/name: ibm-ssp-cm
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: ibm-ssp-cm-1.2.3
+    release: release-name
+spec:
+  # Disable dynamic provisioning
+  storageClassName: "manual"
+  accessModes:
+    - ReadWriteOnce 
+  resources:
+    requests:
+      storage: "2Gi"
+  selector: 
+    matchLabels:
+      app.kubernetes.io/name: ibm-ssp-cm-pv

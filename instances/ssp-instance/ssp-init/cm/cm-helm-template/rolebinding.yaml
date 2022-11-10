@@ -1,0 +1,20 @@
+# Source: ibm-ssp-cm/templates/role-binding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: "release-name-ibm-ssp-cm-podrolebind"
+  labels:
+    app.kubernetes.io/name: ibm-ssp-cm
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: ibm-ssp-cm-1.2.3
+    release: release-name
+ 
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: release-name-ibm-ssp-cm-podclusterrole
+subjects:
+ - kind: ServiceAccount
+   name: release-name-ibm-ssp-cm-serviceaccount
+   namespace: ssp

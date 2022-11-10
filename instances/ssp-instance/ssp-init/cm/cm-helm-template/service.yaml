@@ -1,0 +1,32 @@
+# Source: ibm-ssp-cm/templates/service.yaml
+# Sample to create a service. It can be used to give static identity
+# to the pods created using the deployment.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: release-name-ibm-ssp-cm
+  labels: 
+    app.kubernetes.io/name: ibm-ssp-cm
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: ibm-ssp-cm-1.2.3
+    release: release-name
+    author: IBM
+spec:
+  selector:
+    app.kubernetes.io/name: ibm-ssp-cm
+    app.kubernetes.io/instance: release-name
+    release: release-name
+    author: IBM
+  type: LoadBalancer
+  ports:
+    - name: jetty-port
+      port: 8443
+      targetPort: 8443
+      protocol: TCP
+    - name: cm-port
+      port: 62366
+      targetPort: 62366
+      protocol: TCP
+  sessionAffinity: ClientIP

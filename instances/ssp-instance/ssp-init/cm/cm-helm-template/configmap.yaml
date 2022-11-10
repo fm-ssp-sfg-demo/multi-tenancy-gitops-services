@@ -1,0 +1,32 @@
+# Source: ibm-ssp-cm/templates/configMap.yaml
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: release-name-ibm-ssp-cm
+  annotations:
+        # This is what defines this resource as a hook. Without this line, the
+        # job is considered part of the release.
+        "helm.sh/hook": "pre-install, pre-upgrade, pre-rollback"
+        "helm.sh/hook-weight": "0"
+        "helm.sh/hook-delete-policy": "before-hook-creation"
+  labels:
+    app.kubernetes.io/name: ibm-ssp-cm
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: ibm-ssp-cm-1.2.3
+    release: release-name
+data:
+  # Configuration values can be set as key-value properties
+  cm_config_file: |
+    licenseAccepted=true
+    port=62366
+    jettyPort=8443
+    keyCertExport=true
+    keyCertFileName=defkeyCert.txt
+    keyCertAliasName=keycert
+    helmChartEnabled=true
+    maxHeapSize=2048m
+    customCertEnabled=false
+    commonCertFile=
+    commonCertAlias=
+    commonKeyCertFile=
