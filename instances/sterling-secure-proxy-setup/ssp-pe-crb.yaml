@@ -4,9 +4,9 @@ kind: ClusterRoleBinding
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "202"
-  name: "ssp-cm-serviceaccount-prod"
+  name: "ssp-pe-serviceaccount-prod"
   labels:
-    app: "ssp-cm-serviceaccount"
+    app: "ssp-pe-serviceaccount"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
