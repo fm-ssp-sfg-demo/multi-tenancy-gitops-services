@@ -21,4 +21,3 @@ resources:
 - ssp-setup/keycert-hook-roles.yaml
 - ssp-setup/keycert-hook-job.yaml
 - ssp-setup/keycert-hook-rb.yaml
-
