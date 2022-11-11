@@ -149,8 +149,8 @@ ibm-sfg-prod:
         # nodePort: 30100
         # protocol: TCP
     backendService:
-  #    type: NodePort
-      type: ClusterIP
+      type: NodePort
+#      type: ClusterIP
       ports:
       - name: adapter-1
         port: 30201
