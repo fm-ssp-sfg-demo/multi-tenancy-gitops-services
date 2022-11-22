@@ -43,7 +43,7 @@ ibm-ssp-cm:
   # persistence section specifies persistence volume claim settings which apply to the whole chart
   persistentVolume:
     # enabled is whether to use Persistent Volumes or not
-    enabled: false
+    enabled: true
     # useDynamicProvisioning is whether or not to use Storage Classes to dynamically create Persistent Volumes
     useDynamicProvisioning: false
     # Specify the existing PV claim name to be used for deployment
@@ -53,7 +53,7 @@ ibm-ssp-cm:
     # Specify this to use selector label value for PV-PVC bind
     labelValue: "ibm-ssp-cm-pvc"
     # Specify this to set storage class name
-    storageClassName: "managed-nfs-storage"
+    storageClassName: "manual"
     # Specify this to set PVC size
     size: 2Gi
     # Specify this to set access mode
@@ -152,14 +152,14 @@ ibm-ssp-cm:
 
   # liveness and readiness Probe
   livenessProbe:
-    initialDelaySeconds: 500
-    timeoutSeconds: 100
+    initialDelaySeconds: 200
+    timeoutSeconds: 30
     periodSeconds: 60
     failureThreshold: 10
 
   readinessProbe:
-    initialDelaySeconds: 500
-    timeoutSeconds: 100
+    initialDelaySeconds: 190
+    timeoutSeconds: 5
     periodSeconds: 60
     failureThreshold: 10
 

@@ -8,4 +8,4 @@ export ENGINE_CERTSTORE_PASSWORD=mypasswOrd1!
 export ENGINE_CERTENCRYPT_PASSWORD=mypasswOrd1!
 export ENGINE_CUSTOMCERT_PASSWORD=mypasswOrd1!
 export RWX_STORAGECLASS=ibmc-file-silver
-
+export NS=ssp

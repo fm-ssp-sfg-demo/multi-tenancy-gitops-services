@@ -3,10 +3,10 @@ kind: SecurityContextConstraints
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "225"
-  name: ibm-ssp-engine-scc
+  name: ibm-ssp-cm-scc
   labels:
-    app.kubernetes.io/name: ibm-ssp-engine-scc
-    app.kubernetes.io/instance: ibm-ssp-engine-scc
+    app.kubernetes.io/name: ibm-ssp-cm-scc
+    app.kubernetes.io/instance: ibm-ssp-cm-scc
     app.kubernetes.io/managed-by: IBM
 allowHostDirVolumePlugin: false
 allowHostIPC: false
